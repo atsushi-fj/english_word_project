@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container col-6 mt-5">
+  <div class="alert alert-success container" role="alert">
+    <dl>
+      <dt>English</dt>
+      <dd class='storng text-center mark h3'>{{ object.english_word }}</dd>
+      
+      <dt>Japanese</dt>
+      <dd class='storng text-center mark h3'>{{ object.japanese_word }}</dd>
+    </dl>
+    <a href="{% url 'count' object.pk %}" class="btn btn-primary" tabindex="-1" role="button" aria-disabled="true">checkをつける</a>
+  </div>
+</div>
+{% endblock content %}

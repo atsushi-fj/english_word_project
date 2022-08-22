@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block header %}
+<div class="alert alert-success" role="alert">
+  <h1 class="display-3">英単語の更新</h1>  
+</div>
+{% endblock header %}
+
+{% block content %}
+<div class="container text-center">
+<form action="" method="POST"> {% csrf_token %}
+  <dl>
+    <dt class='h1'>英単語を入力</dt>
+    <dd class='h2'>{{ form.english_word }}</dd>
+    <dt class='h1'>訳を入力</dt>
+    <dd class='h2'>{{ form.japanese_word }}</dd>
+  </dl>
+  <input class='h1' type="submit" value="更新">
+</form>
+</div>
+{% endblock content %}

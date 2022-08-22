@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block header %}
+<div class="alert alert-success" role="alert">
+  <h1 class="display-3"><em>English List</em></h1>  
+</div>
+{% endblock header %}
+
+{% block content %}
+<div class='d-grid gap-2 col-2 mx-auto'>
+  <a class="btn btn-primary" href="{% url 'create' %}" role="button">新規作成</a>
+</div>
+
+{% for item in object_list %}
+<div class="container col-6 mt-5">
+  <div class="alert alert-primary" role="alert">
+    <dl>
+      <dt>English</dt>
+      <dd class='storng text-center mark h3'>{{ item.english_word }}</dd>
+
+      <dt>Japanese</dt>
+      <dd class='storong text-center mark h3'>{{ item.japanese_word }}</dd>
+
+      <dt>CheckCount</dt>
+      <dd class='storong text-center mark h3'>{{ item.check_count }}</dd>
+    </dl>
+    <a href="{% url 'update' item.pk %}" class="btn btn-info" tabindex="-1" role="button" aria-disabled="true">編集画面へ</a>
+    <a href="{% url 'delete' item.pk %}" class="btn btn-success" tabindex="-1" role="button" aria-disabled="true">削除画面へ</a>
+    <a href="{% url 'detail' item.pk %}" class="btn btn-primary" tabindex="-1" role="button" aria-disabled="true">詳細画面へ</a>
+  </div>
+</div>
+{% endfor %}
+{% endblock content %}
